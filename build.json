@@ -1,0 +1,7 @@
+{
+    "xlsx": {
+        "input": "/xlsx",
+        "output": "/cfgs",
+        "package": "cfgs"
+    }
+}
