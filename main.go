@@ -40,6 +40,7 @@ func main() {
 		log.Fatalln("xlsx配置路径错误: ", err)
 	}
 	for _, file := range dir {
+		// 当xlsx文件开启时会存在一个~的同名临时文件
 		if strings.HasPrefix(file.Name(), "~") {
 			continue
 		}

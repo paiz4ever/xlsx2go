@@ -76,6 +76,7 @@ func Output(filePath string) {
 	}
 	outdir := GetExcelOutputDir()
 	outpath := filepath.Join(outdir, fileName+".cfg.go")
+	// 创建导出目录（不存在的话）
 	err = os.MkdirAll(outdir, os.ModePerm)
 	if err != nil {
 		log.Fatalln("创建目录失败: ", err)

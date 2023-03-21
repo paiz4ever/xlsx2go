@@ -19,6 +19,8 @@ func WatchFile() {
 		log.Fatalln("监听目录异常: ", err)
 	}
 	files := make(map[string]time.Time)
+	// 初始化一个定时器以达到防抖的目的
+	// 2秒内的操作将会重置计时器
 	tk := time.NewTicker(time.Second * 2)
 	for {
 		select {
@@ -34,6 +36,7 @@ func WatchFile() {
 			if path.Ext(event.Name) != ".xlsx" {
 				continue
 			}
+			// 重置定时器
 			tk.Reset(time.Second * 2)
 			files[event.Name] = time.Now()
 			log.Println("文件变化: ", event.Name)
